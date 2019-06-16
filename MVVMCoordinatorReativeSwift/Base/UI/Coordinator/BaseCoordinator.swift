@@ -4,7 +4,7 @@
 
 import ReactiveSwift
 
-class BaseCoordinator: ClassNameDerivable {
+class BaseCoordinator<ResultType>: ClassNameDerivable {
 
     // MARK: Properties
 
@@ -14,7 +14,7 @@ class BaseCoordinator: ClassNameDerivable {
 
     // MARK: Public APIs
 
-    func coordinate(to coordinator: BaseCoordinator) -> SignalProducer<Void, Never> {
+    func coordinate(to coordinator: BaseCoordinator) -> SignalProducer<ResultType, Never> {
         store(coordinator: coordinator)
         return coordinator.start().on(value: { [weak self] _ in
             self?.free(coordinator: coordinator)
@@ -24,7 +24,7 @@ class BaseCoordinator: ClassNameDerivable {
     /// Starts the coordinator
     ///
     /// - Returns: Result of coordinator
-    func start() -> SignalProducer<Void, Never> {
+    func start() -> SignalProducer<ResultType, Never> {
         fatalError("Start method ")
     }
 

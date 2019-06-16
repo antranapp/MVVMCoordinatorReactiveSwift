@@ -5,7 +5,7 @@
 import ReactiveSwift
 import UIKit
 
-class ImageListCoordinator: BaseCoordinator {
+class ImageListCoordinator: BaseCoordinator<Void> {
 
     private let window: UIWindow
 

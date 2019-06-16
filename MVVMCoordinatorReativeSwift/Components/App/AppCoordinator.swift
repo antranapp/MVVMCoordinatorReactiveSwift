@@ -5,7 +5,7 @@
 import ReactiveSwift
 import UIKit
 
-class AppCoordinator: BaseCoordinator {
+class AppCoordinator: BaseCoordinator<Void> {
 
     private let window: UIWindow
 
